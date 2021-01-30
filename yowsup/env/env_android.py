@@ -32,8 +32,7 @@ class AndroidYowsupEnv(YowsupEnv):
         version = self.__class__._VERSION
         if short:
             version_split = version.split('.')
-            if len(version_split) > 3:
-                version = '.'.join(version_split[:3])
+            version = '.'.join(version_split[:3])
         return version
 
     def getOSName(self):
