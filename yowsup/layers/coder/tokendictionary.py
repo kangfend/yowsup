@@ -1274,7 +1274,7 @@ class TokenDictionary:
         targetDict = self.dictionary
         if secondary:
             targetDict = self.secondaryDictionary
-        elif index > 236 and index < (236 + len(self.secondaryDictionary)):
+        elif 236 < index < (236 + len(self.secondaryDictionary)):
             targetDict = self.secondaryDictionary
             index = index - 237
         if index < 0 or index > len(targetDict) - 1:
@@ -1284,8 +1284,8 @@ class TokenDictionary:
 
     def getIndex(self, token):
         if token in self.dictionary:
-            return (self.dictionary.index(token), False)
+            return self.dictionary.index(token), False
         elif token in self.secondaryDictionary:
-            return (self.secondaryDictionary.index(token), True)
+            return self.secondaryDictionary.index(token), True
 
         return None
